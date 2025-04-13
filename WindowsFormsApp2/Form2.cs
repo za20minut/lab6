@@ -18,9 +18,50 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
             generating();
+            losu();
+        }
+        static void losu()
+        {
+            int liczbapol = globaln.X * globaln.Y;
+            Random rand = new Random();
+            HashSet<int> uniqueNumbers = new HashSet<int>();
+            HashSet<int> uniqueNumbersszop = new HashSet<int>();
+            HashSet<int> uniqueNumbersdydelf = new HashSet<int>();
+            HashSet<int> uniqueNumberskrok = new HashSet<int>();
+
+            while (uniqueNumbersszop.Count < 3)
+            {
+                int szop = rand.Next(0, globaln.Y*globaln.X); // zakres 1–100
+                
+                if(uniqueNumbers.Add(szop)) uniqueNumbersszop.Add(szop);
+            }
+            while (uniqueNumbers.Count < 3 + globaln.dydelf)
+            {
+                int dydelf = rand.Next(0, globaln.Y * globaln.X); // zakres 1–100
+                
+               if( uniqueNumbers.Add(dydelf)) uniqueNumbersdydelf.Add(dydelf);
+            }
+            while (uniqueNumbers.Count < 3 + globaln.dydelf + globaln.krokodyl)
+            {
+                int krok = rand.Next(0, globaln.Y * globaln.X); // zakres 1–100
+                
+                if(uniqueNumbers.Add(krok)) uniqueNumberskrok.Add(krok);
+            }
+            Console.WriteLine("Wylosowane liczby:");
+            int[,] tab;
+            int pierm;
+            int drugm;
+            foreach (int num in uniqueNumbers)
+            {
+                Console.WriteLine(num);
+                pierm=
+            }
+
+            
+            
+
         }
 
-        
         private void generating()
         {
             for (int i = 0; i < globaln.X; i++)

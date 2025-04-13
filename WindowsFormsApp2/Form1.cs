@@ -15,6 +15,7 @@ namespace WindowsFormsApp2
         public Form1()
         {
             InitializeComponent();
+            Console.WriteLine(3+globaln.X);
         }
 
         private void button1_Click(object sender, EventArgs e)
