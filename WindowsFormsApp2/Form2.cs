@@ -20,7 +20,8 @@ namespace WindowsFormsApp2
             generating();
             losu();
         }
-        static void losu()
+        private HashSet<string> wylosowanePrzyciski = new HashSet<string>();
+        private void losu()
         {
             int liczbapol = globaln.X * globaln.Y;
             Random rand = new Random();
@@ -28,6 +29,7 @@ namespace WindowsFormsApp2
             HashSet<int> uniqueNumbersszop = new HashSet<int>();
             HashSet<int> uniqueNumbersdydelf = new HashSet<int>();
             HashSet<int> uniqueNumberskrok = new HashSet<int>();
+
 
             while (uniqueNumbersszop.Count < 3)
             {
@@ -48,17 +50,20 @@ namespace WindowsFormsApp2
                 if(uniqueNumbers.Add(krok)) uniqueNumberskrok.Add(krok);
             }
             Console.WriteLine("Wylosowane liczby:");
-            int[,] tab;
-            int pierm;
-            int drugm;
+            List<Tuple<int, int>> tabela = new List<Tuple<int, int>>();
+       
             foreach (int num in uniqueNumbers)
             {
                 Console.WriteLine(num);
-                pierm=
-            }
+                int j = num / globaln.Y;
+                int i = num % globaln.Y;
+                string nazwa = $"button{i}_{j}";
+                wylosowanePrzyciski.Add(nazwa);
 
+            }
             
-            
+
+
 
         }
 
@@ -78,7 +83,14 @@ namespace WindowsFormsApp2
                         Button btn = sender as Button;
                         if (btn != null)
                         {
-                            btn.BackColor = Color.Black;
+                            if (wylosowanePrzyciski.Contains(btn.Name))
+                            {
+                                btn.BackColor = Color.Blue;
+                            }
+                            else
+                            {
+                                btn.BackColor = Color.Black;
+                            }
                         }
                     };
                     
