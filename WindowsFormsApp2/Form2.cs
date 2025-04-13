@@ -31,19 +31,19 @@ namespace WindowsFormsApp2
 
             while (uniqueNumbersszop.Count < 3)
             {
-                int szop = rand.Next(0, globaln.Y*globaln.X); // zakres 1–100
+                int szop = rand.Next(0, globaln.Y*globaln.X); 
                 
                 if(uniqueNumbers.Add(szop)) uniqueNumbersszop.Add(szop);
             }
             while (uniqueNumbers.Count < 3 + globaln.dydelf)
             {
-                int dydelf = rand.Next(0, globaln.Y * globaln.X); // zakres 1–100
+                int dydelf = rand.Next(0, globaln.Y * globaln.X); 
                 
                if( uniqueNumbers.Add(dydelf)) uniqueNumbersdydelf.Add(dydelf);
             }
             while (uniqueNumbers.Count < 3 + globaln.dydelf + globaln.krokodyl)
             {
-                int krok = rand.Next(0, globaln.Y * globaln.X); // zakres 1–100
+                int krok = rand.Next(0, globaln.Y * globaln.X); 
                 
                 if(uniqueNumbers.Add(krok)) uniqueNumberskrok.Add(krok);
             }
